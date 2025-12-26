@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Person } from '../types';
+import { getPersonSlug } from '../utils/PersonSlug';
 
 type Props = {
   person?: Person;
@@ -18,9 +19,7 @@ export const PersonLink: React.FC<Props> = ({ person, name, people = [] }) => {
     return <>{name}</>;
   }
 
-  const slug = `${targetPerson.name
-    .toLowerCase()
-    .replace(/\s+/g, '-')}-${targetPerson.born}`;
+  const slug = getPersonSlug(targetPerson);
 
   return (
     <Link

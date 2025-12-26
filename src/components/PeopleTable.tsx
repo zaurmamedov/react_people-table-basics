@@ -1,14 +1,11 @@
-import { Person } from '../../types';
-import { PersonLink } from '../PersonLink';
+import { Person } from '../types';
+import { getPersonSlug } from '../utils/PersonSlug';
+import { PersonLink } from './PersonLink';
 
 type Props = {
   people: Person[];
   activePersonId?: string;
 };
-
-function getPersonSlug(person: Person) {
-  return `${person.name.toLowerCase().replace(/\s+/g, '-')}-${person.born}`;
-}
 
 export const PeopleTable: React.FC<Props> = ({ people, activePersonId }) => {
   return (
@@ -34,7 +31,7 @@ export const PeopleTable: React.FC<Props> = ({ people, activePersonId }) => {
           return (
             <tr
               data-cy="person"
-              key={person.name}
+              key={getPersonSlug(person)}
               className={isActive ? 'has-background-warning' : ''}
             >
               <td>

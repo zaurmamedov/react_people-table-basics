@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Loader } from '../components/Loader';
 import { Person } from '../types';
 import { getPeople } from '../api';
-import { PeopleTable } from '../components/Loader/PeopleTable';
+import { PeopleTable } from '../components/PeopleTable';
 import { useParams } from 'react-router-dom';
 
 export const PeoplePage = () => {
